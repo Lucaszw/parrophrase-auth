@@ -2,8 +2,7 @@
 require 'sinatra'
 
 get '/' do
-  print params
-  print "\n"
+  puts params
 
   'Hello World'
 end
