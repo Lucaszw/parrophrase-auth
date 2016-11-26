@@ -28,7 +28,7 @@ get '/' do
   response = http.request(request)
 
   puts "RESPONSE:"
-  puts response
+  puts response.message
 
   'Hello World'
 end
