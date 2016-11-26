@@ -1,6 +1,7 @@
 # myapp.rb
-require "net/http"
 require 'sinatra'
+require "net/http"
+require "uri"
 
 get '/' do
   puts params
@@ -15,7 +16,10 @@ get '/' do
     "redirect_uri" => "https://parrophrase.herokuapp.com/"
   }
 
-  response = Net::HTTP.post_form(uri, body)
+  http = Net::HTTP.new(uri.host, uri.port)
+
+  request = Net::HTTP::Post.new(uri.request_uri)
+  request.set_form_data(body)
 
   request["Authorization"] = "Basic YjZPBwZGBuGQ5UyYsJCGZaG9YYchxwpzsbKhJKTT"
   request["Content-Type"]  = "application/x-www-form-urlencoded; charset=UTF-8"
