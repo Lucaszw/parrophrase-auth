@@ -5,7 +5,9 @@ require "uri"
 
 get '/' do
   puts params
-
+  puts "CODE:"
+  puts params[:code]
+  
   uri = URI.parse("https://api.quizlet.com/oauth/token")
 
 
