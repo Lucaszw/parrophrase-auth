@@ -7,7 +7,7 @@ get '/' do
   puts params
   puts "CODE:"
   puts params[:code]
-  
+
   uri = URI.parse("https://api.quizlet.com/oauth/token")
 
 
@@ -15,7 +15,8 @@ get '/' do
     "client_id" => "d4Xqwsr4GS",
     "grant_type" => "authorization_code",
     "code" => params[:code],
-    "redirect_uri" => "https://parrophrase.herokuapp.com/"
+    "redirect_uri" => "https://parrophrase.herokuapp.com/",
+    "Basic Authorization" => "ZDRYcXdzcjRHUzpmWTNkY3R6M1hYamd6Q0NkMnFiVkN2"
   }
 
   http = Net::HTTP.new(uri.host, uri.port)
